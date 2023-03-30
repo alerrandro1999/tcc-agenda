@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthController::class, 'index']);
+
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+
+Route::post('/customlogin', [AuthController::class, 'customLogin'])->name('auth.login');
+
+Route::get('/signout', [AuthController::class, 'signOut'])->name('signout');
