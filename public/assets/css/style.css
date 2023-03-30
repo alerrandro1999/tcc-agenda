@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.background-container {
+    background-color: #054141;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-login{
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    max-width: 90%;
+    min-width: 20%;
+    padding: 50px 30px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#email, #password {
+    width: 280px;
+    height: 25px;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+}
+
+#submit {
+    width: 280px;
+    padding: 8px;
+    background-color: #054141;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.container-error {
+    width: 280px;
+}
