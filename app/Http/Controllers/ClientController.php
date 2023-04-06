@@ -27,6 +27,7 @@ class ClientController extends Controller
     {
         $clients = new Clients;
         $clients['name'] = $request->name;
+        $clients['age'] = $request->age;
         $clients['whatsapp'] = $request->whatsapp;
 
         $clients->save();
