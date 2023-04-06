@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProcedureController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,11 @@ Route::get('/clientes', [ClientController::class, 'index'])->name('client.client
 Route::get('/novo-cliente', [ClientController::class, 'newClient'])->name('client.newClient');
 
 Route::post('/save', [ClientController::class, 'save'])->name('client.save');
+
+Route::get('/procedimentos', [ProcedureController::class, 'index'])->name('procedure.procedures');
+
+Route::get('/novo-procedimento', [ProcedureController::class, 'newProcedure'])->name('procedure.newProcedure');
+
+Route::post('/save-procedure', [ProcedureController::class, 'save'])->name('procedure.save');
 
 
