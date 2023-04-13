@@ -17,6 +17,10 @@
                             </th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Ultima Sessão</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Editar</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Excluir</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -43,6 +47,17 @@
                                 <td>
                                     <p class="text-xs font-weight-bold mb-0"><a href="">00/00/00</a>
                                     </p>
+                                </td>
+                                <td>
+                                    <a href="{{ route('client.updateCheck', ['id' => $client->id]) }}" type="button"
+                                        class="btn btn-primary mb-3"><i class="fa fa-edit (alias)"></i>&nbsp;
+                                        Editar</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('client.delete', ['id' => $client->id]) }}" type="button"
+                                        class="btn btn-danger mb-3"><i class="fa fa-regular fa-trash"></i>&nbsp;
+                                        Excluir</a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

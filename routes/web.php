@@ -30,10 +30,17 @@ Route::get('/novo-cliente', [ClientController::class, 'newClient'])->name('clien
 
 Route::post('/save', [ClientController::class, 'save'])->name('client.save');
 
+Route::get('/atualizar-cliente/{id}', [ClientController::class, 'newClient'])->name('client.updateCheck');
+
+Route::put('/update', [ClientController::class, 'update'])->name('client.update');
+
 Route::get('/procedimentos', [ProcedureController::class, 'index'])->name('procedure.procedures');
 
 Route::get('/novo-procedimento', [ProcedureController::class, 'newProcedure'])->name('procedure.newProcedure');
 
 Route::post('/save-procedure', [ProcedureController::class, 'save'])->name('procedure.save');
+
+Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('client.delete');
+
 
 
