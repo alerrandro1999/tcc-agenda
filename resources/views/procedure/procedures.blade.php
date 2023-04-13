@@ -1,6 +1,8 @@
+<title>Kelem Borges - Procedimentos</title>
+
 @extends('dashboard')
 @section('dashboard')
-    <div class="col-lg-12 m-3">
+    <div class="col-lg- m-3">
         <a href="{{ route('procedure.newProcedure') }}" class="btn btn-icon btn-3 btn-primary" type="button">
             <span class="btn-inner--icon"><i class="ni ni-single-02 text-light opacity-10"></i></span>
             <span class="btn-inner--text">Novo Procedimento</span>
@@ -32,15 +34,25 @@
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-xs">{{ $client->price }}</h6>
+                                            <h6 class="mb-0 text-xs">R$ {{ $client->price }}</h6>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{ $client->qtd_session }}</span>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-xs">{{ $client->qtd_session }}
+                                            </h6>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{ $client->days_return }}</span>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-xs">{{ $client->days_return }}
+                                            </h6>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

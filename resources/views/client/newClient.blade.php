@@ -1,3 +1,4 @@
+<title>Kelem Borges - Nova Cliente</title>
 @extends('dashboard')
 @section('dashboard')
     <div class="col-lg-6 m-3 p-3 bg-white">
