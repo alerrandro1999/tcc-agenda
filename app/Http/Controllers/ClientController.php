@@ -18,9 +18,22 @@ class ClientController extends Controller
         );
     }
 
-    public function newClient()
+    public function newClient(Request $request)
     {
-        return view('client.newClient');
+        $data = Clients::find($request['id']);
+        return view('client.newClient', [
+            'data' => $data
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $client = Clients::find($request['id']);
+        $client['name'] = $request->name;
+        $client['age'] = $request->age;
+        $client['whatsapp'] = $request->whatsapp;
+        $client->save();
+        return redirect('/dashboard');
     }
 
     public function save(Request $request)
@@ -33,5 +46,13 @@ class ClientController extends Controller
         $clients->save();
 
         return redirect('/dashboard');
+    }
+
+    public function delete($id)
+    {
+        $clients = Clients::find($id);
+        $clients->delete();
+        return redirect('/dashboard');
+
     }
 }
