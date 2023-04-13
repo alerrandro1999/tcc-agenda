@@ -35,6 +35,10 @@
     margin-bottom: 10px;
 }
 
+.background-top-banner{
+    background-color: #054141;
+}
+
 #submit {
     width: 280px;
     padding: 8px;

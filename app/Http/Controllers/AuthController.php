@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\MembroController;
+use App\Models\Clients;
+use App\Models\Procedure;
 
 class AuthController extends Controller
 {
@@ -63,8 +65,12 @@ class AuthController extends Controller
 
     public function dashboard()
     {
+        $data['client'] = Clients::count();
+        $data['procedure'] = Procedure::count();
         if (Auth::check()) {
-            return view('dashboard');
+            return view('dash', [
+                'data' => $data,
+            ]);
         }
         return redirect("/")->with('invalido', 'Você não tem permissão');
     }

@@ -1,6 +1,7 @@
+<title>Kelem Borges - Clientes</title>
 @extends('dashboard')
 @section('dashboard')
-    <div class="col-lg-12 m-3">
+    <div class="col-lg-9 m-3">
         <a href="{{ route('client.newClient') }}" class="btn btn-icon btn-3 btn-primary" type="button">
             <span class="btn-inner--icon"><i class="ni ni-single-02 text-light opacity-10"></i></span>
             <span class="btn-inner--text">Nova Cliente</span>
@@ -12,11 +13,10 @@
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Idade</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Telefone
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Telefone
                             </th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Ultima Sessão</th>
-                            <th class="text-secondary opacity-7"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,8 +40,9 @@
                                     <p class="text-xs font-weight-bold mb-0"><a href="">{{ $client->whatsapp }}</a>
                                     </p>
                                 </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">00/00/00</span>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0"><a href="">00/00/00</a>
+                                    </p>
                                 </td>
                             </tr>
                         @endforeach
