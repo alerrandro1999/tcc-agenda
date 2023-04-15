@@ -33,7 +33,7 @@ class ClientController extends Controller
         $client['age'] = $request->age;
         $client['whatsapp'] = $request->whatsapp;
         $client->save();
-        return redirect('/dashboard');
+        return redirect('/clientes');
     }
 
     public function save(Request $request)
@@ -45,14 +45,14 @@ class ClientController extends Controller
 
         $clients->save();
 
-        return redirect('/dashboard');
+        return redirect('/clientes');
     }
 
     public function delete($id)
     {
         $clients = Clients::find($id);
         $clients->delete();
-        return redirect('/dashboard');
+        return redirect('/clientes');
 
     }
 }
