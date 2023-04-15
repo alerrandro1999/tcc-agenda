@@ -19,6 +19,9 @@
                             </th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                 Dias para retorno</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Editar</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,6 +56,17 @@
                                             </h6>
                                         </div>
                                     </div>
+                                </td>
+                                <td>
+                                    <a href="{{ route('procedure.updateCheck', ['id' => $client->id]) }}" type="button"
+                                        class="btn btn-primary mb-3"><i class="fa fa-edit (alias)"></i>&nbsp;
+                                        Editar</a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('procedure.delete', ['id' => $client->id]) }}" type="button"
+                                        class="btn btn-danger mb-3"><i class="fa fa-regular fa-trash"></i>&nbsp;
+                                        Excluir</a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
