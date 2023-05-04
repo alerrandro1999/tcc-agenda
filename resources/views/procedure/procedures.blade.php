@@ -2,7 +2,7 @@
 
 @extends('dashboard')
 @section('dashboard')
-    <div class="col-lg- m-3">
+    <div class="col-lg-9 m-3">
         <a href="{{ route('procedure.newProcedure') }}" class="btn btn-icon btn-3 btn-primary" type="button">
             <span class="btn-inner--icon"><i class="ni ni-single-02 text-light opacity-10"></i></span>
             <span class="btn-inner--text">Novo Procedimento</span>
