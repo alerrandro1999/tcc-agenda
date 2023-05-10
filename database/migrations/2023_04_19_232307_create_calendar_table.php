@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('client');
             $table->string('procedure');
-            $table->string('price');
+            $table->float('price', 8, 2);
             $table->string('time');
             $table->date('date');
+            $table->string('whatsapp');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

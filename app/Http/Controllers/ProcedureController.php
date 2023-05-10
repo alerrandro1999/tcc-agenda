@@ -39,7 +39,7 @@ class ProcedureController extends Controller
     {
         $procedure = new Procedure;
         $procedure['name'] = $request->name;
-        $procedure['price'] = $request->price;
+        $procedure['price'] = str_replace( ',', '.', $request->price);
         $procedure['qtd_session'] = $request->qtd_session;
         $procedure['days_return'] = $request->days_return;
 
