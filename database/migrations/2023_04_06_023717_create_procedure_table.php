@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('procedure', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('price');
+            $table->float('price', 8, 2);
             $table->string('qtd_session');
             $table->string('days_return');
             $table->timestamps();

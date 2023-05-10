@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\MembroController;
+use App\Models\Calendar;
 use App\Models\Clients;
 use App\Models\Procedure;
 
@@ -67,6 +68,14 @@ class AuthController extends Controller
     {
         $data['client'] = Clients::count();
         $data['procedure'] = Procedure::count();
+        $data['price'] = Calendar::where('status', 1)->sum('price');
+        $data['waiting'] = Calendar::where('status', null)->count();
+        $data['done'] = Calendar::where('status', 1)->count();
+        $data['canceled'] = Calendar::where('status', 0)->count();
+
+
+
+
         if (Auth::check()) {
             return view('dash', [
                 'data' => $data,
