@@ -1,7 +1,7 @@
 @extends('welcome')
 @section('content')
-    <section class="background-container">
-        <div class="container-login">
+    <section class="w-full h-screen flex justify-center items-center bg-background-kelem">
+        <div class="bg-white flex justify-center max-w-[90%] min-w-[20%] py-12 px-7">
             <form action="{{ route('auth.login') }}" method="POST">
                 @csrf
                 <div class="image">
@@ -18,13 +18,15 @@
                     <input id="submit" type="submit" value="Entrar">
                 </div>
                 @if (session('invalido'))
-                    <div class="container-error">
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <span class="alert-text text-light ">{{session('invalido')}}</span>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                    <div class="bg-red-500 text-white px-2 py-2 relative" role="alert">
+                        <strong class="font-bold text-sm">Atenção!</strong>
+                        <span class="block sm:inline text-sm">{{ session('invalido') }}</span>
+                        <button class="absolute top-0 right-0 px-2 py-2"
+                            onclick="event.preventDefault(); this.parentElement.style.display='none'">
+                            <i class="ph ph-x"></i>
+
+                        </button>
+
                     </div>
                 @endif
             </form>

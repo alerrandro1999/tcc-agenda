@@ -12,6 +12,9 @@
     </title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- <script src="https://kit.fontawesome.com/0e81c77e4f.js" crossorigin="anonymous"></script> --}}
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
 </head>
 
 <body>

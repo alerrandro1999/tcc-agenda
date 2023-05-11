@@ -4,13 +4,8 @@
     box-sizing: border-box;
 }
 
-.background-container {
-    background-color: #054141;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.bg-background-kelem{
+    background: #054141;
 }
 
 .container-login{
@@ -33,6 +28,7 @@
     height: 25px;
     padding: 15px 10px;
     margin-bottom: 10px;
+    border: 1px solid black;
 }
 
 .background-top-banner{
