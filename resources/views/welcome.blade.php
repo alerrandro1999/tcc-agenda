@@ -20,5 +20,15 @@
 <body>
     @yield('content')
 </body>
+<script type="text/javascript">
+    function dropdown() {
+        document.querySelector("#submenu").classList.toggle("hidden");
+        document.querySelector("#arrow").classList.toggle("rotate-0");
+    }
+    dropdown();
 
+    function openSidebar() {
+        document.querySelector(".sidebar").classList.toggle("hidden");
+    }
+</script>
 </html>

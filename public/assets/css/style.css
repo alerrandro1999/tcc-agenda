@@ -1,14 +1,18 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.bg-background-kelem{
+.bg-background-kelem {
     background: #054141;
 }
 
-.container-login{
+.bg-background-kelem-linear {
+    background: linear-gradient(97.17deg, #054141 0%, #054141 0.01%, #005C5C 98.08%);
+}
+
+.container-login {
     background: #fff;
     display: flex;
     justify-content: center;
@@ -23,7 +27,8 @@
     margin-bottom: 20px;
 }
 
-#email, #password {
+#email,
+#password {
     width: 280px;
     height: 25px;
     padding: 15px 10px;
@@ -31,7 +36,7 @@
     border: 1px solid black;
 }
 
-.background-top-banner{
+.background-top-banner {
     background-color: #054141;
 }
 
