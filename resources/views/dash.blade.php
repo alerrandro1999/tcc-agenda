@@ -1,156 +1,78 @@
 @extends('dashboard')
 @section('dashboard')
-    <div class="d-flex justify-content-start gap-4 flex-wrap m-3">
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Clientes</p>
-                                    <h5 class="font-weight-bolder">
-                                        {{ $data['client'] }}
-                                    </h5>
-                                    <p class="mb-0">
-                                        {{-- <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday --}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-circle-08 text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="flex p-3 gap-7 flex-wrap">
+        <div class="title w-full text-5xl">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="flex justify-between items-center w-64 bg-background-kelem-linear p-3 text-white rounded">
+            <div class="col-8">
+                <p class="text-lg ">Caixa</p>
+                <h5 class="text-xl font-bold ">
+                    R$ {{ $data['price'] }}
+                </h5>
             </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Procedimentos</p>
-                                    <h5 class="font-weight-bolder">
-                                        {{ $data['procedure'] }}
-                                    </h5>
-                                    <p class="mb-0">
-                                        {{-- <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday --}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-bullet-list-67  text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-4xl rounded-full text-black bg-white p-2">
+                <i class="ph ph-chart-bar"></i>
             </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Caixa</p>
-                                    <h5 class="font-weight-bolder">
-                                        R$ {{ $data['price'] }}
-                                    </h5>
-                                    <p class="mb-0">
-                                        {{-- <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday --}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-money-coins  text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="flex justify-between items-center w-64 bg-background-kelem-linear p-3 text-white rounded">
+            <div class="col-8">
+                <p class="text-lg ">Clientes</p>
+                <h5 class="text-xl font-bold ">
+                    {{ $data['client'] }}
+                </h5>
             </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Feito</p>
-                                    <h5 class="font-weight-bolder">
-                                        {{ $data['done'] }}
-                                    </h5>
-                                    <p class="mb-0">
-                                        {{-- <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday --}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-check-bold  text-lg opacity-10" aria-hidden="true"></i>
+            <div class="text-4xl rounded-full text-black bg-white p-2">
+                <i class="ph ph-chart-bar"></i>
+            </div>
+        </div>
+        <div class="flex justify-between items-center w-64 bg-background-kelem-linear p-3 text-white rounded">
+            <div class="col-8">
+                <p class="text-lg ">Procedimentos</p>
+                <h5 class="text-xl font-bold ">
+                    {{ $data['procedure'] }}
+                </h5>
+            </div>
+            <div class="text-4xl rounded-full text-black bg-white p-2">
+                <i class="ph ph-chart-bar"></i>
+            </div>
+        </div>
+        <div class="title w-full text-2xl">
+            <h2>Status dos procedimentos</h1>
+        </div>
+        <div class="flex justify-between items-center w-64 bg-background-kelem-linear p-3 text-white rounded">
+            <div class="col-8">
+                <p class="text-lg ">Concluídos</p>
+                <h5 class="text-xl font-bold ">
+                    {{ $data['done'] }}
+                </h5>
+            </div>
+            <div class="text-4xl rounded-full text-black bg-white p-2">
+                <i class="ph ph-chart-bar"></i>
+            </div>
+        </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="flex justify-between items-center w-64 bg-background-kelem-linear p-3 text-white rounded">
+            <div class="col-8">
+                <p class="text-lg ">Aguardando</p>
+                <h5 class="text-xl font-bold ">
+                    {{ $data['waiting'] }}
+                </h5>
             </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Aguardando</p>
-                                    <h5 class="font-weight-bolder">
-                                        {{ $data['waiting'] }}
-                                    </h5>
-                                    <p class="mb-0">
-                                        {{-- <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday --}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-money-coins  text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-4xl rounded-full text-black bg-white p-2">
+                <i class="ph ph-chart-bar"></i>
             </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body p-3">
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Cancelado</p>
-                                    <h5 class="font-weight-bolder">
-                                    {{ $data['canceled'] }}
-                                    </h5>
-                                    <p class="mb-0">
-                                        {{-- <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                        since yesterday --}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 text-end">
-                                <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-                                    <i class="ni ni-money-coins  text-lg opacity-10" aria-hidden="true"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="flex justify-between items-center w-64 bg-background-kelem-linear p-3 text-white rounded">
+            <div class="col-8">
+                <p class="text-lg ">Cancelados</p>
+                <h5 class="text-xl font-bold ">
+                    {{ $data['canceled'] }}
+                </h5>
             </div>
+            <div class="text-4xl rounded-full text-black bg-white p-2">
+                <i class="ph ph-chart-bar"></i>
+            </div>
+        </div>
     </div>
 @endsection

@@ -1,73 +1,73 @@
 <title>Kelem Borges - Calendario</title>
 @extends('dashboard')
 @section('dashboard')
-    <div class="col-lg-12 p-3 d-flex gap-4 flex-wrap">
-        <div class="col-lg-12">
-            <a href="{{ route('calendar.newService') }}" class="btn btn-icon btn-3 btn-primary" type="button">
-                <span class="btn-inner--icon"><i class="ni ni-money-coins text-light opacity-10"></i></span>
-                <span class="btn-inner--text">Novo Atendimento</span>
-            </a>
+    <div class="flex p-3 gap-7 flex-wrap">
+        <div class="w-full">
+            <div>
+                <a href="{{ route('calendar.newService') }}" class=" p-3 rounded flex w-48 gap-3" type="button" style="background: #054141">
+                    <span class="text-white">Novo Atendimento</span>
+                    <span class=""><i class="ph ph-plus text-white text-xl"></i></span>
+                </a>
+            </div>
         </div>
         @foreach ($data as $item)
-            <div class="form-horizontal">
-                @method('PUT')
-                @csrf
-                <div class="col-lg-12">
-                    <div class="bg-white d-flex justify-content-center align-items-center gap-3 p-3">
-                        <div class="rounded-circle background-top-banner d-flex justify-content-center align-items-center text-white"
-                            style="width: 50px; height: 50px">
-                            {{ \Carbon\Carbon::parse($item->date)->format('d') }}
-                        </div>
-                        <div class="d-flex flex-column">
-                            @php
-                                $procedures = explode(',', $item->procedure);
-                                $price = explode(',', $item->price);
-                                
-                                $nameAndOPrice = array_combine($procedures, $price);
-                            @endphp
-                            <span>{{ $item->client }}</span>
-                            @foreach ($nameAndOPrice as $procedure => $price)
-                                <span>{{ $procedure }} - R$: {{ $price }}</span>
-                            @endforeach
-
-                            <span>{{ $item->time }}</span>
-                            <span><a href="https://api.whatsapp.com/send?phone=+55{{$item->whatsapp}}&text=olá tudo bem?" target="_blank">Entrar em contato</a></span>
-                        </div>
-                        <div class="d-flex gap-3 flex-column">
-                            <form action="{{ route('calendar.done') }}" method="post">
-                                @method('PUT')
-                                @csrf
-                                <input type="hidden" id="status" name="status" placeholder="" class="form-control"
-                                    value="1">
-                                <input type="hidden" id="id" name="id" placeholder="" class="form-control"
-                                    value="{{ $item->id }}">
-                                <button type="submit" class="form-control border-0"><i
-                                        class="ni ni-like-2 fs-2 text-success" ></i></button>
-                            </form>
-
-                            <a href="{{ route('calendar.canceled', ['id' => $item->id]) }}" type="button" id="id"
-                                name="id" class="form-control border-0" value="{{ $item->id }}" ><i
-                                    class="ni ni-like-2 fs-2 text-danger rotate-180"></i></a>
-
-                        </div>
+            @method('PUT')
+            @csrf
+            <div class="w-[300px] bg-background-kelem text-white rounded ">
+                <div class="flex justify-center items-center gap-7 p-3">
+                    <div class="rounded flex justify-center text-4xl">
+                        {{ \Carbon\Carbon::parse($item->date)->format('d') }}
                     </div>
-                    <div
-                        class="text-center text-white  
+                    <div class="flex flex-col">
+                        @php
+                            $procedures = explode(',', $item->procedure);
+                            $price = explode(',', $item->price);
+                            
+                            $nameAndOPrice = array_combine($procedures, $price);
+                        @endphp
+                        <span>{{ $item->client }}</span>
+                        @foreach ($nameAndOPrice as $procedure => $price)
+                            <span>{{ $procedure }} - R$: {{ $price }}</span>
+                        @endforeach
+
+                        <span>{{ $item->time }}</span>
+                        <span><a href="https://api.whatsapp.com/send?phone=+55{{ $item->whatsapp }}&text=olá tudo bem?"
+                                target="_blank">Entrar em contato</a></span>
+                    </div>
+                    <div class="flex gap-3 flex-col">
+                        <form action="{{ route('calendar.done') }}" method="post">
+                            @method('PUT')
+                            @csrf
+                            <input type="hidden" id="status" name="status" placeholder="" class="form-control"
+                                value="1">
+                            <input type="hidden" id="id" name="id" placeholder="" class="form-control"
+                                value="{{ $item->id }}">
+                            <button type="submit" class="form-control border-0"><i
+                                    class="ph ph-thumbs-up text-4xl text-green-500"></i></button>
+                        </form>
+
+                        <a href="{{ route('calendar.canceled', ['id' => $item->id]) }}" type="button" id="id"
+                            name="id" class="form-control border-0" value="{{ $item->id }}"><i
+                                class="ph ph-thumbs-down text-4xl text-red-500"></i></a>
+
+                    </div>
+                </div>
+                <div
+                    class="text-center text-white  
                             @if ($item->status == '') Aguardando
                             @elseif ($item->status == 1)
-                                bg-success
+                                bg-green-500
                             @else
-                                bg-danger @endif">
-                        <span>
-                            @if ($item->status == '')
-                                Aguardando
-                            @elseif ($item->status == 1)
-                                Feito
-                            @else
-                                Cancelado
-                            @endif
-                        </span>
-                    </div>
+                                bg-red-500 @endif">
+                    <span>
+                        @if ($item->status == '')
+                            Aguardando
+                        @elseif ($item->status == 1)
+                            Feito
+                        @else
+                            Cancelado
+                        @endif
+                    </span>
                 </div>
             </div>
         @endforeach
