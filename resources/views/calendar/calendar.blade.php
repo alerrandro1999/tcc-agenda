@@ -13,7 +13,7 @@
         @foreach ($data as $item)
             @method('PUT')
             @csrf
-            <div class="w-[300px] bg-background-kelem text-white rounded ">
+            <div class="w-[300px] h-auto bg-background-kelem text-white rounded ">
                 <div class="flex justify-center items-center gap-7 p-3">
                     <div class="rounded flex justify-center text-4xl">
                         {{ \Carbon\Carbon::parse($item->date)->format('d') }}
@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div
-                    class="text-center text-white  
+                    class="text-center text-white   
                             @if ($item->status == '') Aguardando
                             @elseif ($item->status == 1)
                                 bg-green-500
