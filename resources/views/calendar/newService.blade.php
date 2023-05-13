@@ -19,7 +19,7 @@
                 </div>
                 <div class="flex flex-wrap">
                     <label class="w-full" for="name">Cliente</label>
-                    <select name="client" class="border-[2px] p-1 w-4/12" aria-label="Default select example">
+                    <select name="client" class="border-[2px] p-1 w-4/12 outline-none" aria-label="Default select example">
                         <option selected>Selecione um cliente</option>
                         @foreach ($client as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="flex flex-wrap">
                     <label class="w-full" for="whatsapp">Procedimento</label>
-                    <select name="procedure[]" class="border-[2px] p-1 w-4/12" multiple aria-label="Default select example">
+                    <select name="procedure[]" class="border-[2px] p-1 w-4/12 outline-none" multiple aria-label="Default select example">
                         <option selected>Selecione um procedimento</option>
                         @foreach ($procedure as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -37,18 +37,18 @@
                 </div>
                 <div class="flex flex-wrap">
                     <label class="w-full" for="whatsapp">Data</label>
-                    <input name="date" type="date" class="border-[2px] p-1 w-4/12" id="qtd_session">
+                    <input name="date" type="date" class="border-[2px] p-1 w-4/12 outline-none" id="qtd_session">
                 </div>
                 <div class="flex flex-wrap">
                     <label class="w-full"  for="whatsapp">Início</label>
-                    <input name="start" type="time" class="border-[2px] p-1 w-4/12" id="days_return">
+                    <input name="start" type="time" class="border-[2px] p-1 w-4/12 outline-none" id="days_return">
                 </div>
                 <div class="flex flex-wrap">
                     <label class="w-full"  for="whatsapp">Fim</label>
-                    <input name="end" type="time" class="border-[2px] p-1 w-4/12" id="days_return">
+                    <input name="end" type="time" class="border-[2px] p-1 w-4/12 outline-none" id="days_return">
                 </div>
                 <div>
-                    <button type="submit" class="bg-background-kelem py-1 px-8 text-white w-4/12" style="background: #054141">Salvar</button>
+                    <button type="submit" class="bg-background-kelem py-1 px-8 text-white w-4/12 outline-none" style="background: #054141">Salvar</button>
                 </div>
                 </form>
             </div>
