@@ -13,7 +13,7 @@
         <input type="hidden" id="id" name="id" placeholder="" value="{{ isset($data->id) ? $data->id : '' }}">
         <div class="flex flex-col gap-5">
             <div class="title w-full text-5xl">
-                <h1>Novo Procedimento</h1>
+                <h1>{{ isset($data) ? 'Editar Procedimento' : 'Novo Procedimento' }}</h1>
             </div>
             <div class="flex flex-wrap">
                 <label class="w-full" for="name">Nome</label>
