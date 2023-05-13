@@ -8,7 +8,7 @@
             <div
                 class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[250px] overflow-y-auto text-center bg-background-kelem">
                 <div class="text-gray-100 text-xl">
-                    <div class="p-2.5 mt-1 flex items-center">
+                    <div class="p-2.5 mt-1 flex justify-center">
                         <h1 class="font-bold text-gray-200 text-[15px] ml-3">Kelem Borges</h1>
                         <i class="ph ph-x cursor-pointer ml-28 lg:hidden" onclick="openSidebar()"></i>
                     </div>
