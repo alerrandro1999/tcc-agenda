@@ -68,13 +68,25 @@ class AuthController extends Controller
     {
         $data['client'] = Clients::count();
         $data['procedure'] = Procedure::count();
-        $data['price'] = Calendar::where('status', 1)->sum('price');
+        $data['price'] = Calendar::where('status', 1)->get('price');
+
+        $total = 0;
+
+        foreach ($data['price'] as $item) {
+            // Separa os preços em um array
+            $prices = explode(',', $item['price']);
+
+            // Soma os preços convertidos para float
+            foreach ($prices as $price) {
+                $total += (float) str_replace(',', '.', preg_replace('/[^0-9\.,]/', '', $price));
+            }
+        }
+
+       $data['price'] = $total;
+
         $data['waiting'] = Calendar::where('status', null)->count();
         $data['done'] = Calendar::where('status', 1)->count();
         $data['canceled'] = Calendar::where('status', 0)->count();
-
-
-
 
         if (Auth::check()) {
             return view('dash', [
@@ -83,7 +95,7 @@ class AuthController extends Controller
         }
         return redirect("/")->with('invalido', 'Você não tem permissão');
     }
-    
+
     public function signOut()
     {
         Session()->flush();
