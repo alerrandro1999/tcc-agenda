@@ -45,6 +45,7 @@ Route::put('/done-calendar', [CalendarController::class, 'done'])->name('calenda
 
 Route::get('/cancelar-procedimento/{id}', [CalendarController::class, 'canceled'])->name('calendar.canceled');
 
+Route::get('/grafico', [AuthController::class, 'grafico']);
 
 
 
