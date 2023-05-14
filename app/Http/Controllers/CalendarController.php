@@ -37,18 +37,22 @@ class CalendarController extends Controller
         $procedures = Procedure::whereIn('id', $request['procedure'])->get();
 
         foreach ($procedures as $procedure) {
+            $proceduresId[] = $procedure->id;
             $proceduresName[] = $procedure->name;
             $proceduresPrice[] = $procedure->price;
         }
 
         $procedutreName = implode(',', $proceduresName);
         $procedutrePrice = implode(',', $proceduresPrice);
+        $procedutreId = implode(',', $proceduresId);
+
 
         $Calendar = new Calendar();
         $Calendar['client'] = $client->name;
         $Calendar['whatsapp'] = Regex::removerCaracteresEspeciais($client->whatsapp);
-        $Calendar['procedure'] = $procedutreName;
+        $Calendar['name_procedure'] = $procedutreName;
         $Calendar['price'] = $procedutrePrice;
+        $Calendar['id_procedure'] = $procedutreId;
         $Calendar['date'] = $request['date'];
         $Calendar['time'] = $request['start'] . ' - ' . $request['end'];
         $Calendar['status'] = $request['status'];

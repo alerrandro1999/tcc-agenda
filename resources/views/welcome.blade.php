@@ -15,20 +15,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     {{-- <script src="https://kit.fontawesome.com/0e81c77e4f.js" crossorigin="anonymous"></script> --}}
     <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+        function dropdown() {
+            document.querySelector("#submenu").classList.toggle("hidden");
+            document.querySelector("#arrow").classList.toggle("rotate-0");
+        }
+        dropdown();
+
+        function openSidebar() {
+            document.querySelector(".sidebar").classList.toggle("hidden");
+        }
+    </script>
 </head>
 
 <body>
     @yield('content')
 </body>
-<script type="text/javascript">
-    function dropdown() {
-        document.querySelector("#submenu").classList.toggle("hidden");
-        document.querySelector("#arrow").classList.toggle("rotate-0");
-    }
-    dropdown();
 
-    function openSidebar() {
-        document.querySelector(".sidebar").classList.toggle("hidden");
-    }
-</script>
 </html>

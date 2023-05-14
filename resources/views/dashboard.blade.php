@@ -40,7 +40,6 @@
                 </div>
             </div>
         </section>
-
         <main class="w-3/4">
             @yield('dashboard')
         </main>

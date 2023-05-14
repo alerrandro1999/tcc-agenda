@@ -20,9 +20,8 @@
                     </div>
                     <div class="flex flex-col">
                         @php
-                            $procedures = explode(',', $item->procedure);
+                            $procedures = explode(',', $item->name_procedure);
                             $price = explode(',', $item->price);
-                            
                             $nameAndOPrice = array_combine($procedures, $price);
                         @endphp
                         <span>{{ $item->client }}</span>

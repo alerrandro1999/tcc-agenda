@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Membros;
 use App\Models\User;
-use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\MembroController;
 use App\Models\Calendar;
 use App\Models\Clients;
 use App\Models\Procedure;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -70,19 +68,55 @@ class AuthController extends Controller
         $data['procedure'] = Procedure::count();
         $data['price'] = Calendar::where('status', 1)->get('price');
 
+        $data['qtd_procedure'] = DB::table('calendar')
+            ->select(
+                DB::raw('GROUP_CONCAT(name_procedure SEPARATOR ",") as procedure_name'),
+                DB::raw('COUNT(*) as total')
+            )
+            ->where('status', '=', 1)
+            ->groupBy('date')
+            ->get()
+            ->map(function ($procedure) {
+                $procedure->procedure_name = explode(',', $procedure->procedure_name);
+                return $procedure;
+            })
+            ->flatMap(function ($procedure) {
+                return $procedure->procedure_name;
+            })
+            ->groupBy(function ($procedure) {
+                return $procedure;
+            })
+            ->map(function ($grouped_procedures) {
+                $total = $grouped_procedures->count();
+                $name = $grouped_procedures->first();
+                return ['name' => $name, 'total' => $total];
+            })
+            ->values();
+
+        $dados = $data['qtd_procedure'];
+
+        $dados_formatados = array();
+
+        array_push($dados_formatados, array('Task', 'Hours per Day'));
+
+        foreach ($dados as $dado) {
+            $nome = html_entity_decode($dado['name']);
+            $total = (int) $dado['total'];
+            array_push($dados_formatados, array($nome, $total));
+        }
+        $data['qtd_procedure'] = htmlspecialchars_decode(json_encode($dados_formatados, JSON_UNESCAPED_UNICODE));
+
+
         $total = 0;
 
         foreach ($data['price'] as $item) {
-            // Separa os preços em um array
             $prices = explode(',', $item['price']);
-
-            // Soma os preços convertidos para float
             foreach ($prices as $price) {
                 $total += (float) str_replace(',', '.', preg_replace('/[^0-9\.,]/', '', $price));
             }
         }
 
-       $data['price'] = $total;
+        $data['price'] = $total;
 
         $data['waiting'] = Calendar::where('status', null)->count();
         $data['done'] = Calendar::where('status', 1)->count();
